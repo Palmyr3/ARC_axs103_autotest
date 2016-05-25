@@ -47,16 +47,13 @@ def execCmd(cmd, attempts, wait_time):
                 responsBuff = ser.readline()
                 if(responsBuff):
                     response += str(responsBuff)
-#            print(">>>: " + response)
-            
         except Exception as e1:
             print("error communicating...: " + str(e1))
-
     else:
-        print ("error: port closed")
-        
+        print("error: port closed") 
+    
     return response
-        
+
 
 def dhcpStat(memAdr):
     response = execCmd((b'dhcp ' + memAdr + b"\n"), 40, 5)
